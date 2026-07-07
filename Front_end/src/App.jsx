@@ -5,7 +5,7 @@ import { useState } from 'react'
 import './App.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import RootLayout from './layout/RootLayout'
-import Dashboard from './pages/Dashboard'
+import Dashboard from './pages/Dashboard.jsx'
 
 
 function App() {
