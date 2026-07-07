@@ -1,20 +1,5 @@
 import React, { useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-const fs = require('fs');
-const csv = require('csv-parser');
-
-const dataArray = [];
-
-fs.createReadStream('data.csv')
-  .pipe(csv()) // Automatically maps headers to object keys
-  .on('data', (row) => {
-    dataArray.push(row);
-  })
-  .on('end', () => {
-    console.log('CSV successfully processed into array:');
-    console.log(dataArray);
-  });
-
 
 // const Non_electronics = [
 //     {
@@ -76,65 +61,23 @@ const Dashboard = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!localStorage.getItem('username')) navigate('/sign-in')
+        // if (!localStorage.getItem('username')) navigate('/sign-in')
     }, [navigate])
-
-    const days = ['9', '10']
-    const totalRegistered = users.length
-
-    const registerCounts = useMemo(() => {
-        return users.reduce((acc, user) => {
-            user.register?.forEach((day) => {
-                acc[day] = (acc[day] || 0) + 1
-            })
-            return acc
-        }, {})
-    }, [])
-
-    const boothCounts = useMemo(() => {
-        return users.reduce((acc, user) => {
-            days.forEach((day) => {
-                const visits = user[`visit_${day}`] || []
-                visits.forEach((booth) => {
-                    acc[booth] = (acc[booth] || 0) + 1
-                })
-            })
-            return acc
-        }, {})
-    }, [])
-    // constant variable to count the number of users who have completed visiting at least 19 booths for each day; useMemo is used to memoize the result and save it for later rendering.
-    const completeBoothCounts = useMemo(() => {
-        return days.reduce((acc, day) => {
-            acc[day] = users.filter((user) => {
-                const visits = user[`visit_${day}`] || []
-                return user.register?.includes(day) && new Set(visits).size >= 19
-            }).length
-            return acc
-        }, {})
-    }, [])
-    //complete booth count const is recorded number of booths that have been qr scanned for stamp rally.
-    const boothRows = Object.entries(boothCounts).sort((a, b) => a[0].localeCompare(b[0]))
-    //const variable use to record current number of participants that have visited each booth, sorted by booth name in ascending order.
 
     return (
         <div className='min-h-screen bg-slate-50 px-4 py-6 text-slate-900'>
             <div className='mx-auto max-w-7xl space-y-6'>
                 <header className='rounded-3xl border border-slate-200 bg-white p-6 shadow-sm'>
-                    <h1 className='text-3xl font-semibold'>สถิติการเข้าร่วมงาน TLC 38</h1>
-                    <p className='mt-2 text-slate-600'>สรุปจำนวนผู้ลงทะเบียนและยอดเข้าบูธในวันที่ 9 และ 10 กรกฎาคม</p>
+                    <h1 className='text-3xl font-semibold'>Curriculum Guide</h1>
+                    <p className='mt-2 text-slate-600'></p>
                 </header>
 
                 <section className='grid gap-4 lg:grid-cols-4'>
                     <div className='rounded-3xl border border-slate-200 bg-white p-6 shadow-sm'>
-                        <div className='text-sm font-medium text-slate-500'>จำนวนผู้ลงทะเบียนทั้งหมด</div>
-                        <div className='mt-4 text-4xl font-bold text-slate-900'>{totalRegistered}</div>
+                        <div className='text-sm font-medium text-slate-500'></div>
+                        <div className='mt-4 text-4xl font-bold text-slate-900'></div>
                     </div>
-                    {days.map((day) => (
-                        <div key={day} className='rounded-3xl border border-slate-200 bg-white p-6 shadow-sm'>
-                            <div className='text-sm font-medium text-slate-500'>ลงทะเบียนวันที่ {day} กรกฎาคม</div>
-                            <div className='mt-4 text-4xl font-bold text-slate-900'>{registerCounts[day] || 0}</div>
-                        </div>
-                    ))}
+
                 </section>
 
                 <section className='grid gap-4 lg:grid-cols-2'>
