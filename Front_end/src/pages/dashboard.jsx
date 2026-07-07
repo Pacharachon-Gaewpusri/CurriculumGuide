@@ -84,14 +84,14 @@ const Dashboard = () => {
                     <div className='rounded-3xl border border-slate-200 bg-white p-6 shadow-sm'>
                         <h2 className='text-xl font-semibold text-slate-900'>ผู้ลงทะเบียนเข้าบูธครบ 19 บูธ</h2>
                         <p className='mt-2 text-slate-600'>นับเฉพาะผู้ที่ลงทะเบียนเข้าร่วมงานในวันนั้นและเข้าบูธอย่างน้อย 19 บูธ</p>
-                        <div className='mt-6 space-y-4'>
+                        {/* <div className='mt-6 space-y-4'>
                             {days.map((day) => (
                                 <div key={day} className='rounded-3xl border border-slate-200 bg-slate-50 p-4'>
                                     <div className='text-sm text-slate-500'>วันที่ {day} กรกฎาคม</div>
                                     <div className='mt-2 text-3xl font-bold text-slate-900'>{completeBoothCounts[day] || 0}</div>
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className='rounded-3xl border border-slate-200 bg-white p-6 shadow-sm'>
@@ -105,7 +105,7 @@ const Dashboard = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {boothRows.length > 0 ? (
+                                    {/* {boothRows.length > 0 ? (
                                         boothRows.map(([booth, count]) => (
                                             <tr key={booth} className='odd:bg-slate-50'>
                                                 <td className='border-b border-slate-200 px-4 py-3'>{booth}</td>
@@ -116,7 +116,7 @@ const Dashboard = () => {
                                         <tr>
                                             <td colSpan='2' className='border-b border-slate-200 px-4 py-3 text-slate-500'>ไม่มีข้อมูลบูธ</td>
                                         </tr>
-                                    )}
+                                    )} */}
                                 </tbody>
                             </table>
                         </div>
