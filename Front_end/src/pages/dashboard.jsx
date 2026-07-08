@@ -82,8 +82,8 @@ const Dashboard = () => {
 
                 <section className='grid gap-4 lg:grid-cols-2'>
                     <div className='rounded-3xl border border-slate-200 bg-white p-6 shadow-sm'>
-                        <h2 className='text-xl font-semibold text-slate-900'>ผู้ลงทะเบียนเข้าบูธครบ 19 บูธ</h2>
-                        <p className='mt-2 text-slate-600'>นับเฉพาะผู้ที่ลงทะเบียนเข้าร่วมงานในวันนั้นและเข้าบูธอย่างน้อย 19 บูธ</p>
+                        <h2 className='text-xl font-semibold text-slate-900'>Test1</h2>
+                        <p className='mt-2 text-slate-600'>Test2</p>
                         {/* <div className='mt-6 space-y-4'>
                             {days.map((day) => (
                                 <div key={day} className='rounded-3xl border border-slate-200 bg-slate-50 p-4'>
@@ -95,13 +95,13 @@ const Dashboard = () => {
                     </div>
 
                     <div className='rounded-3xl border border-slate-200 bg-white p-6 shadow-sm'>
-                        <h2 className='text-xl font-semibold text-slate-900'>จำนวนผู้ลงทะเบียนเข้าบูธตามบูธ</h2>
+                        <h2 className='text-xl font-semibold text-slate-900'>Test3</h2>
                         <div className='mt-4 overflow-x-auto'>
                             <table className='w-full border-collapse text-left text-sm'>
                                 <thead>
                                     <tr>
-                                        <th className='border-b border-slate-200 px-4 py-3 font-medium text-slate-600'>บูธ</th>
-                                        <th className='border-b border-slate-200 px-4 py-3 font-medium text-slate-600'>จำนวนผู้เข้าชม</th>
+                                        <th className='border-b border-slate-200 px-4 py-3 font-medium text-slate-600'>big brown fox</th>
+                                        <th className='border-b border-slate-200 px-4 py-3 font-medium text-slate-600'>jumps over the lazy dog</th>
                                     </tr>
                                 </thead>
                                 <tbody>
