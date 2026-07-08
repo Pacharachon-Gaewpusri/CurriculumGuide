@@ -1,4 +1,6 @@
 // import "./App.css";
+import express from "express";
+import helmet from "helmet";
 
 // const csv = require('csvtojson');
 // const fs = require('fs');
@@ -31,31 +33,40 @@
 //   );
 // }
 
-const xlsx = require('xlsx');
+// const xlsx = require('xlsx');
 
-function convertWorkbookToObjects(filePath) {
-    // Load the Excel workbook
-    const workbook = xlsx.readFile(filePath);
+// function convertWorkbookToObjects(filePath) {
+//     // Load the Excel workbook
+//     const workbook = xlsx.readFile(filePath);
     
-    // Create an object to store data from all sheets
-    const workbookData = {};
+//     // Create an object to store data from all sheets
+//     const workbookData = {};
 
-    // Iterate through every sheet in the workbook
-    workbook.SheetNames.forEach(sheetName => {
-        const worksheet = workbook.Sheets[sheetName];
+//     // Iterate through every sheet in the workbook
+//     workbook.SheetNames.forEach(sheetName => {
+//         const worksheet = workbook.Sheets[sheetName];
         
-        // Convert the rows to an array of JavaScript objects
-        // The header option ensures the first row is used as property names
-        const rowsAsObjects = xlsx.utils.sheet_to_json(worksheet, { header: 'A' });
+//         // Convert the rows to an array of JavaScript objects
+//         // The header option ensures the first row is used as property names
+//         const rowsAsObjects = xlsx.utils.sheet_to_json(worksheet, { header: 'A' });
         
-        workbookData[sheetName] = rowsAsObjects;
-    });
+//         workbookData[sheetName] = rowsAsObjects;
+//     });
 
-    return workbookData;
-}
+//     return workbookData;
+// }
 
-// Example usage:
-const results = convertWorkbookToObjects('D:/Pacharachon_Work/CurriculumGuide/Front_end/src/data/AUN QA 2025 (Non-electronics).xlsx');
-console.log(results);
+// // Example usage:
+// const results = convertWorkbookToObjects('D:/Pacharachon_Work/CurriculumGuide/Front_end/src/data/AUN QA 2025 (Non-electronics).xlsx');
+// console.log(results);
 
-export default App;
+// function App() {
+//     return (
+//         <div>
+//             <h1>Curriculum Guide</h1>
+//             <p>Default app loaded successfully.</p>
+//         </div>
+//     );
+// }
+
+// export default App;
