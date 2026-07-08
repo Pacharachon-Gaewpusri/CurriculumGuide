@@ -1,6 +1,7 @@
 // import "./App.css";
-import express from "express";
-import helmet from "helmet";
+// import express from "express";
+// import helmet from "helmet";
+import App from './Front_end/src/App.jsx'
 
 // const csv = require('csvtojson');
 // const fs = require('fs');
@@ -60,13 +61,15 @@ import helmet from "helmet";
 // const results = convertWorkbookToObjects('D:/Pacharachon_Work/CurriculumGuide/Front_end/src/data/AUN QA 2025 (Non-electronics).xlsx');
 // console.log(results);
 
-// function App() {
-//     return (
-//         <div>
-//             <h1>Curriculum Guide</h1>
-//             <p>Default app loaded successfully.</p>
-//         </div>
-//     );
-// }
 
-// export default App;
+
+function App() {
+    return (
+        <div>
+            <h1>Curriculum Guide</h1>
+            <p>Default app loaded successfully.</p>
+        </div>
+    );
+}
+
+export default App;
