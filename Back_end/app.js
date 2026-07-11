@@ -1,7 +1,7 @@
 // import "./App.css";
 // import express from "express";
 // import helmet from "helmet";
-import App from './Front_end/src/App.jsx'
+import App from '../Front_end/src/App.jsx'
 
 // const csv = require('csvtojson');
 // const fs = require('fs');
