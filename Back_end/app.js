@@ -1,8 +1,22 @@
-// import "./App.css";
-// import express from "express";
-// import helmet from "helmet";
-import App from '../Front_end/src/App.jsx'
+// import "dotenv/config";
+import express from "express";
+import helmet from "helmet";
+import cors from "cors";
+import App from '../Front_end/src/main.jsx';
 
+const app = express();
+
+app.use(helmet());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
+export default app;
 // const csv = require('csvtojson');
 // const fs = require('fs');
 
