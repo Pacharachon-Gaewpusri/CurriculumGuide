@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cookie": "^2.0.1",
     "cors": "^2.8.6",
     "csv-parse": "^7.0.1",
     "csvtojson": "^2.0.14",
@@ -8,6 +9,8 @@
     "jsx": "^0.9.89",
     "node": "^26.5.0",
     "react": "^19.2.7",
+    "vite": "^8.1.4",
     "xlsx": "^0.18.5"
-  }
+  },
+  "type": "module"
 }

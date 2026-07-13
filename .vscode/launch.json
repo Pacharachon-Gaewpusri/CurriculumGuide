@@ -8,12 +8,9 @@
             "name": "Launch Program",
             "program": "${workspaceFolder}/Back_end/app.js",
             "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
             "type": "node"
         },
-        
+
         {
             "name": "Launch via NPM",
             "request": "launch",
@@ -27,12 +24,12 @@
             ],
             "type": "node"
         },
-        // {
-        //     "type": "chrome",
-        //     "request": "launch",
-        //     "name": "Launch Chrome against localhost",
-        //     "url": "http://localhost:8080",
-        //     "webRoot": "${workspaceFolder}"
-        // }
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        }
     ]
 }
