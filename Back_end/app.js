@@ -63,13 +63,13 @@ import App from '../Front_end/src/App.jsx'
 
 
 
-function App() {
-    return (
-        <div>
-            <h1>Curriculum Guide</h1>
-            <p>Default app loaded successfully.</p>
-        </div>
-    );
-}
+// function App() {
+//     return (
+//         <div>
+//             <h1>Curriculum Guide</h1>
+//             <p>Default app loaded successfully.</p>
+//         </div>
+//     );
+// }
 
-export default App;
+// export default App;
