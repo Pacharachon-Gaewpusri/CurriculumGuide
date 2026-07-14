@@ -1,4 +1,22 @@
 {
+  "name": "curriculumguide",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Pacharachon-Gaewpusri/CurriculumGuide#readme",
+  "bugs": {
+    "url": "https://github.com/Pacharachon-Gaewpusri/CurriculumGuide/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pacharachon-Gaewpusri/CurriculumGuide.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "cookie": "^2.0.1",
     "cors": "^2.8.6",
@@ -11,6 +29,5 @@
     "react": "^19.2.7",
     "vite": "^8.1.4",
     "xlsx": "^0.18.5"
-  },
-  "type": "module"
+  }
 }
