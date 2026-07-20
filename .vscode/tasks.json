@@ -1,0 +1,30 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "dev",
+			"path": "Front_end/my-app",
+			"problemMatcher": [],
+			"label": "npm: dev - Front_end/my-app",
+			"detail": "vite"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "Front_end/my-app",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - Front_end/my-app",
+			"detail": "vite build"
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"group": "test",
+			"problemMatcher": [],
+			"label": "npm: test",
+			"detail": "echo \"Error: no test specified\" && exit 1"
+		}
+	]
+}

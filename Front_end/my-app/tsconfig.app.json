@@ -21,6 +21,15 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
-  },
-  "include": ["src", "App.jsx", "main.jsx", "main.js"]
+  }
+  ,
+  // "include": [
+  //   "src/**/*.ts",
+  //   "src/**/*.tsx",
+  //   "src/**/*.js",
+  //   "src/**/*.jsx",
+  //   "vite-env.d.ts"
+  // ],
+  // "exclude": [
+  // ]
 }

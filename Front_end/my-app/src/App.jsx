@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
-import './index.css'
+// import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import RootLayout from './src/layout/RootLayout.jsx'
-import Dashboard from './src/pages/Dashboard.jsx'
+import RootLayout from './layout/RootLayout.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 

@@ -27,7 +27,15 @@
     "jsx": "^0.9.89",
     "node": "^26.5.0",
     "react": "^19.2.7",
-    "vite": "^8.1.4",
-    "xlsx": "^0.18.5"
+    "react-dom": "^19.2.7"
+  },
+  "allowScripts": {
+    "node@26.5.0": true,
+    "vite@8.1.5": true,
+    "minimist@0.0.10": true,
+    "optimist@0.6.1": true
+  },
+  "devDependencies": {
+    "vite": "^8.1.5"
   }
 }
