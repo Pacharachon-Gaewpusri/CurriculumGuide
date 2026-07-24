@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
   },
 });
 
-function App() {
+function app_js() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<RootLayout />}>
@@ -32,4 +32,4 @@ function App() {
   )
 }
 
-export default App
+export default app_js
