@@ -20,10 +20,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static('../Front_end/my-app'));
+app.use(express.static('../Front_end/my-app/dist'));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve('../Front_end/my-app/index.html'));
+app.get('*path', (req, res) => {
+  res.sendFile(path.resolve('../Front_end/my-app/dist/index.html'));
 });
 
 // app.use("/upload", express.static('src/upload'))

@@ -1,11 +1,11 @@
-const XLSX = require('xlsx');
-const fs = require('fs');
+import express from "express";
+import path from 'path';
 
-const XLSX = require('xlsx');
-const fs = require('fs');
+import XLSX from 'xlsx';
+import fs from 'fs';
 
 // File paths for the two Excel files
-const files = ['AUN QA 2025 (Non-electronics).xlsx', 'AUN QA 2025 (Electronics).xlsx'];
+const files = ['Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx', 'Front_end/my-app/src/data/AUN QA 2025-2026 (Electronics).xlsx'];
 
 // Object to store all structured data
 const outputData = {};
