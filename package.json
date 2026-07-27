@@ -1,4 +1,8 @@
+
 {
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "type": "module",  
   "dependencies": {
     "@tanstack/react-query": "^5.101.4",
     "cors": "^2.8.6",

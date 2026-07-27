@@ -25,6 +25,13 @@ app.use(express.static('../Front_end/my-app/dist'));
 app.get('*path', (req, res) => {
   res.sendFile(path.resolve('../Front_end/my-app/dist/index.html'));
 });
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.resolve('../Front_end/my-app/dist/index.html'));
+});
+
+// app.get('/api/dashboard', (req, res) => {
+//   res.json({ message: 'Dashboard API endpoint' });
+// });
 
 // app.use("/upload", express.static('src/upload'))
 
