@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
-// import './index.css'
+import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import RootLayout from './layout/RootLayout.jsx'
 import Dashboard from './pages/Dashboard.jsx'
