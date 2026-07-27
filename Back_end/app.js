@@ -1,7 +1,7 @@
 // import app_js from '../Front_end/my-app/src/App.jsx'
 // import '../Front_end/my-app/src/main.jsx'
-// import Dashboard from '../Front_end/my-app/src/pages/Dashboard.jsx'
-// import RootLayout from '../Front_end/my-app/src/layout/RootLayout.jsx'
+import Dashboard from '../Front_end/my-app/src/pages/Dashboard.jsx'
+import RootLayout from '../Front_end/my-app/src/layout/RootLayout.jsx'
 
 import express from "express";
 import path from 'path';
