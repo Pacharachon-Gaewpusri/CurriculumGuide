@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import resources from './data/resources.json'
+// import resources from './data/resources.json'
 
 const Dashboard = () => {
     const navigate = useNavigate()
