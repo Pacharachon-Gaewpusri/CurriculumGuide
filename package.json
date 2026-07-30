@@ -1,8 +1,7 @@
-
 {
   "name": "your-project-name",
   "version": "1.0.0",
-  "type": "module",  
+  "type": "module",
   "dependencies": {
     "@tanstack/react-query": "^5.101.4",
     "cors": "^2.8.6",
@@ -18,5 +17,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.4"
+  },
+  "allowScripts": {
+    "xlsx@0.18.5": true,
+    "minimist@0.0.10": true
   }
 }
