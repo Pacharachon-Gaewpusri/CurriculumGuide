@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path according to your project setup
-import tailwindcss from '@tailwindcss/vite'
+import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+
 const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 
 const CirriculumAnalytics = () => {
@@ -446,7 +447,12 @@ const CirriculumAnalytics = () => {
                         })}
                     </div>
                 </div>
-
+                <Link to="/">
+                                    <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to HomePage</button>
+                                </Link>
+                <Link to="/dashboard">
+                    <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to Dashboard</button>
+                </Link>        
             </div>
         </div>
     )

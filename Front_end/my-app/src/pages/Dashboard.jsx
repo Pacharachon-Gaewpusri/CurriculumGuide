@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path preserved
-import tailwindcss from '@tailwindcss/vite'
+import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 
 const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 
@@ -134,7 +134,7 @@ const Dashboard = () => {
                     <div className='relative flex-1 max-w-md'>
                         {/* Search Icon (14px) */}
                         <div className='absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-slate-400'>
-                            <svg style={{ width: '14px', height: '14px', minWidth: '14px' }} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                            <svg style={{ width: '14px', height: '14px' }} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' />
                             </svg>
                         </div>
@@ -317,7 +317,12 @@ const Dashboard = () => {
                         </table>
                     </div>
                 </div>
-
+                <Link to="/">
+                    <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to HomePage</button>
+                </Link>
+                <Link to="/curriculum-analytics">
+                    <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to Analytics</button>
+                </Link>
             </div>
         </div>
     )
