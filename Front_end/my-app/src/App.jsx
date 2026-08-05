@@ -6,6 +6,7 @@ import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromEleme
 import RootLayout from './layout/RootLayout.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import CirriculumAnalytics from './pages/CirriculumAnalytics.jsx'
+import tailwindcss from '@tailwindcss/vite'
 // import { GotoDashboard } from './utils/Navigation.jsx'
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path according to your project setup
-
+import tailwindcss from '@tailwindcss/vite'
 const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 
 const CirriculumAnalytics = () => {

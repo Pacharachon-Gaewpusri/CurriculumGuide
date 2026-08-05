@@ -7,6 +7,7 @@ import express from "express";
 import path from 'path';
 import helmet from "helmet";
 import cors from "cors";
+import tailwindcss from '@tailwindcss/vite'
 
 const app = express();
 

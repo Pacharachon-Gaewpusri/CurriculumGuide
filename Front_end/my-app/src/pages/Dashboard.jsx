@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path preserved
+import tailwindcss from '@tailwindcss/vite'
 
 const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 

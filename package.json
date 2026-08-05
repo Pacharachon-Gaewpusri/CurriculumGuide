@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-query": "^5.101.4",
     "cors": "^2.8.6",
     "express": "^5.2.1",
@@ -12,6 +13,7 @@
     "pip": "^0.0.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "tailwindcss": "^4.3.3",
     "vite": "^8.1.5",
     "xlsx": "^0.18.5"
   },
@@ -20,6 +22,7 @@
   },
   "allowScripts": {
     "xlsx@0.18.5": true,
-    "minimist@0.0.10": true
+    "minimist@0.0.10": true,
+    "node@26.5.0": true
   }
 }
