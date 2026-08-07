@@ -2,10 +2,10 @@ import React, { useEffect, useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path preserved
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
 
 const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 const FILE_KEY_2 = "Front_end/my-app/src/data/AUN QA 2025-2026 (electronics).xlsx"
+const ITEMS_PER_PAGE = 60
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -25,6 +25,7 @@ const Dashboard = () => {
     const [selectedCategory, setSelectedCategory] = useState(categories[0] || "ตจวิทยา")
     const [searchTerm, setSearchTerm] = useState('')
     const [showAllMajors, setShowAllMajors] = useState(false)
+    const [currentPage, setCurrentPage] = useState(0)
 
     const allMajorBooks = useMemo(() => {
         return categories.flatMap((category) => {
@@ -68,6 +69,24 @@ const Dashboard = () => {
             )
         })
     }, [books, searchTerm])
+
+    const pageCount = Math.max(1, Math.ceil(filteredBooks.length / ITEMS_PER_PAGE))
+
+    const visiblePageNumbers = useMemo(() => {
+        const delta = 3 // Number of pages to show on each side of the current page
+        const start = Math.max(0, currentPage - delta) // Ensure delta don't go below 0
+        const end = Math.min(pageCount - 1, currentPage + delta)// maximum page number is used to avoid going beyond the last page
+        return Array.from({ length: end - start + 1 }, (_, i) => start + i)// Create an array of page numbers from start to end
+    }, [currentPage, pageCount])
+
+    const paginatedBooks = useMemo(() => {
+        const start = currentPage * ITEMS_PER_PAGE
+        return filteredBooks.slice(start, start + ITEMS_PER_PAGE)
+    }, [currentPage, filteredBooks])
+
+    useEffect(() => {
+        setCurrentPage(0)
+    }, [selectedCategory, searchTerm, showAllMajors])
 
     return (
         <div className='min-h-screen bg-slate-50/70 px-3 py-5 sm:px-6 lg:px-8 text-slate-800 font-sans'>
@@ -168,7 +187,7 @@ const Dashboard = () => {
                             type='text'
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            placeholder={`Search ${selectedCategory}...`}
+                            placeholder={showAllMajors ? 'Search all entries...' : `Search ${selectedCategory}...`}
                             className='w-full pl-8 pr-8 py-1 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-900 focus:bg-white transition-all'
                         />
                         {searchTerm && (
@@ -185,7 +204,10 @@ const Dashboard = () => {
 
                     <div className='flex items-center gap-2'>
                         <div className='text-xs font-medium text-slate-500 flex items-center gap-1'>
-                            Showing <span className='font-bold text-slate-800'>{filteredBooks.length}</span> of <span className='font-bold text-slate-800'>{books.length}</span>
+                            Showing <span className='font-bold text-slate-800'>{Math.min(filteredBooks.length, currentPage * ITEMS_PER_PAGE + 1)}</span>
+                            <span className='text-slate-400'>-</span>
+                            <span className='font-bold text-slate-800'>{Math.min((currentPage + 1) * ITEMS_PER_PAGE, filteredBooks.length)}</span>
+                            of <span className='font-bold text-slate-800'>{filteredBooks.length}</span>
                         </div>
                     </div>
                 </div>
@@ -259,14 +281,14 @@ const Dashboard = () => {
                                 </tr>
                             </thead>
                             <tbody className='divide-y divide-slate-100'>
-                                {filteredBooks.length > 0 ? (
-                                    filteredBooks.map((book, index) => (
+                                {paginatedBooks.length > 0 ? (
+                                    paginatedBooks.map((book, index) => (
                                         <tr 
                                             key={`${book["Item OCLC Number"]}-${index}`} 
                                             className='hover:bg-slate-50/80 transition-colors group'
                                         >
                                             <td className='px-3 py-2.5 align-top text-center text-slate-500 font-semibold'>
-                                                {index + 1}
+                                                {currentPage * ITEMS_PER_PAGE + index + 1}
                                             </td>
                                             <td className='px-3.5 py-2.5 align-top'>
                                                 <div className='flex flex-col gap-0.5'>
@@ -331,7 +353,7 @@ const Dashboard = () => {
                                     ))
                                 ) : (
                                     <tr>
-                                        <td colSpan={6} className='px-6 py-8 text-center'>
+                                        <td colSpan={7} className='px-6 py-8 text-center'>
                                             <div className='flex flex-col items-center justify-center space-y-1.5'>
                                                 <div className='p-2 rounded-full bg-slate-100 text-slate-400'>
                                                     <svg style={{ width: '20px', height: '20px' }} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -353,6 +375,70 @@ const Dashboard = () => {
                         </table>
                     </div>
                 </div>
+                {pageCount > 1 && (
+                    <div className='flex flex-col items-center gap-2 py-4'>
+                        <div className='flex flex-wrap items-center justify-center gap-2 text-sm'>
+                            <button
+                                type='button'
+                                onClick={() => setCurrentPage((page) => Math.max(0, page - 1))}
+                                disabled={currentPage === 0}
+                                className='px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed'
+                            >
+                                ← Previous
+                            </button>/*Layout */
+
+                            {visiblePageNumbers[0] > 0 && (
+                                <>
+                                    <button
+                                        type='button'
+                                        onClick={() => setCurrentPage(0)}
+                                        className='px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                                    >
+                                        1
+                                    </button>
+                                    {visiblePageNumbers[0] > 1 && <span className='text-slate-400'>...</span>}
+                                </>
+                            )}
+
+                            {visiblePageNumbers.map((page) => (
+                                <button
+                                    key={page}
+                                    type='button'
+                                    onClick={() => setCurrentPage(page)}
+                                    className={`px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-100 ${page === currentPage ? 'bg-slate-900 text-white' : 'bg-white text-slate-600'}`}
+                                >
+                                    {page + 1}
+                                </button>
+                            ))}
+
+                            {visiblePageNumbers[visiblePageNumbers.length - 1] < pageCount - 1 && (
+                                <>
+                                    {visiblePageNumbers[visiblePageNumbers.length - 1] < pageCount - 2 && <span className='text-slate-400'>...</span>}
+                                    <button
+                                        type='button'
+                                        onClick={() => setCurrentPage(pageCount - 1)}
+                                        className='px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                                    >
+                                        {pageCount}
+                                    </button>
+                                </>
+                            )}
+
+                            <button
+                                type='button'
+                                onClick={() => setCurrentPage((page) => Math.min(pageCount - 1, page + 1))}
+                                disabled={currentPage === pageCount - 1}
+                                className='px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed'
+                            >
+                                Next →
+                            </button>
+                        </div>
+                        <div className='text-xs text-slate-500'>
+                            Page {currentPage + 1} of {pageCount}
+                        </div>
+                    </div>
+                )}
+
                 <Link to="/">
                     <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to HomePage</button>
                 </Link>
