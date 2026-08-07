@@ -2,8 +2,10 @@ import React, { useEffect, useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path preserved
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
 const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
+const FILE_KEY_2 = "Front_end/my-app/src/data/AUN QA 2025-2026 (electronics).xlsx"
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -12,7 +14,9 @@ const Dashboard = () => {
         // if (!localStorage.getItem('username')) navigate('/sign-in')
     }, [navigate])
 
-    const dataset = useMemo(() => rawJsonData[FILE_KEY] || {}, [])
+    const dataset = useMemo(() => {
+        return { ...rawJsonData[FILE_KEY], ...rawJsonData[FILE_KEY_2] }
+    }, [])
 
     const categories = useMemo(() => {
         return Object.keys(dataset).filter((key) => Array.isArray(dataset[key]))
@@ -20,15 +24,29 @@ const Dashboard = () => {
 
     const [selectedCategory, setSelectedCategory] = useState(categories[0] || "ตจวิทยา")
     const [searchTerm, setSearchTerm] = useState('')
+    const [showAllMajors, setShowAllMajors] = useState(false)
+
+    const allMajorBooks = useMemo(() => {
+        return categories.flatMap((category) => {
+            const rawCategoryData = dataset[category]
+            if (!Array.isArray(rawCategoryData)) return []
+
+            return rawCategoryData.filter(
+                (item) => item && item["Item OCLC Number"] !== "Item OCLC Number"
+            )
+        })
+    }, [categories, dataset])
 
     const books = useMemo(() => {
+        if (showAllMajors) return allMajorBooks
+
         const rawCategoryData = dataset[selectedCategory]
         if (!Array.isArray(rawCategoryData)) return []
 
         return rawCategoryData.filter(
             (item) => item && item["Item OCLC Number"] !== "Item OCLC Number"
         )
-    }, [dataset, selectedCategory])
+    }, [allMajorBooks, dataset, selectedCategory, showAllMajors])
 
     const filteredBooks = useMemo(() => {
         if (!searchTerm.trim()) return books
@@ -126,6 +144,14 @@ const Dashboard = () => {
                                 </button>
                             )
                         })}
+                         <button
+                            onClick={() => setShowAllMajors((prev) => !prev)}
+                            className='px-2.5 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-[11px] font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors'>
+                            {showAllMajors ? 'Show selected majors' : 'Show all entries'}
+                        </button>
+                        <div className='text-xs font-medium text-slate-500 flex items-center gap-1'>
+                            Showing <span className='font-bold text-slate-800'>{filteredBooks.length}</span> of <span className='font-bold text-slate-800'>{books.length}</span>
+                        </div>
                     </div>
                 </div>
 
@@ -157,8 +183,10 @@ const Dashboard = () => {
                         )}
                     </div>
 
-                    <div className='text-xs font-medium text-slate-500 flex items-center gap-1'>
-                        Showing <span className='font-bold text-slate-800'>{filteredBooks.length}</span> of <span className='font-bold text-slate-800'>{books.length}</span>
+                    <div className='flex items-center gap-2'>
+                        <div className='text-xs font-medium text-slate-500 flex items-center gap-1'>
+                            Showing <span className='font-bold text-slate-800'>{filteredBooks.length}</span> of <span className='font-bold text-slate-800'>{books.length}</span>
+                        </div>
                     </div>
                 </div>
 
@@ -168,6 +196,11 @@ const Dashboard = () => {
                         <table className='w-full text-left text-xs border-collapse'>
                             <thead>
                                 <tr className='bg-slate-50/80 border-b border-slate-200 text-[11px] font-semibold text-slate-500 uppercase select-none'>
+                                    <th className='px-3 py-2.5 w-12 text-center'>
+                                        <div className='flex items-center justify-center gap-1'>
+                                            <span>No.</span>
+                                        </div>
+                                    </th>
                                     
                                     <th className='px-3.5 py-2.5'>
                                         <div className='flex items-center gap-1'>
@@ -232,6 +265,9 @@ const Dashboard = () => {
                                             key={`${book["Item OCLC Number"]}-${index}`} 
                                             className='hover:bg-slate-50/80 transition-colors group'
                                         >
+                                            <td className='px-3 py-2.5 align-top text-center text-slate-500 font-semibold'>
+                                                {index + 1}
+                                            </td>
                                             <td className='px-3.5 py-2.5 align-top'>
                                                 <div className='flex flex-col gap-0.5'>
                                                     <span className='font-mono text-[11px] font-semibold text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded w-fit border border-slate-200/50'>

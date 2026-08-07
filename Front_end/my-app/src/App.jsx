@@ -31,7 +31,7 @@ const App = () => {
           element={
             <div style={{ display: 'flex', gap: '10px' }}>
               <Link to="/dashboard">
-                <button>Home</button>
+                <button>Dashboard</button>
               </Link>
               <Link to="/curriculum-analytics">
                 <button>Curriculum Analytics</button>

@@ -13,6 +13,7 @@
     "pip": "^0.0.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-paginate": "^8.3.0",
     "tailwindcss": "^4.3.3",
     "vite": "^8.1.5",
     "xlsx": "^0.18.5"
