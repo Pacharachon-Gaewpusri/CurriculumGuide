@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useState, useMemo, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path preserved
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 
 const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 const FILE_KEY_2 = "Front_end/my-app/src/data/AUN QA 2025-2026 (electronics).xlsx"
-const ITEMS_PER_PAGE = 60
+const ITEMS_PER_PAGE = [60,100,200,250,500,1000][0] // Default to 60 items per page
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -84,10 +84,28 @@ const Dashboard = () => {
         return filteredBooks.slice(start, start + ITEMS_PER_PAGE)
     }, [currentPage, filteredBooks])
 
+    const handlePageChange = (selectedPage) => {
+        setCurrentPage(selectedPage)
+    }
+
     useEffect(() => {
         setCurrentPage(0)
     }, [selectedCategory, searchTerm, showAllMajors])
 
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    const toggleDropdown = () => setIsOpen(!isOpen);
     return (
         <div className='min-h-screen bg-slate-50/70 px-3 py-5 sm:px-6 lg:px-8 text-slate-800 font-sans'>
             <div className='max-w-7xl mx-auto space-y-4'>
@@ -139,9 +157,10 @@ const Dashboard = () => {
                                     onClick={() => {
                                         setSelectedCategory(category)
                                         setSearchTerm('')
+                                        setShowAllMajors(false)
                                     }}
                                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all shrink-0 ${
-                                        isActive
+                                        isActive && !showAllMajors
                                             ? 'bg-slate-900 text-white shadow-sm'
                                             : 'bg-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                                     }`}
@@ -166,10 +185,13 @@ const Dashboard = () => {
                          <button
                             onClick={() => setShowAllMajors((prev) => !prev)}
                             className='px-2.5 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-[11px] font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors'>
-                            {showAllMajors ? 'Show selected majors' : 'Show all entries'}
+                            {showAllMajors ? 'Show selected major' : 'Show all majors'}
                         </button>
                         <div className='text-xs font-medium text-slate-500 flex items-center gap-1'>
-                            Showing <span className='font-bold text-slate-800'>{filteredBooks.length}</span> of <span className='font-bold text-slate-800'>{books.length}</span>
+                            Showing <span className='font-bold text-slate-800'>{filteredBooks.length}</span> of <span className='font-bold text-slate-800'>{books.length}
+                            <div className="relative inline-block text-left" ref={dropdownRef}>
+                            </div>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -385,7 +407,7 @@ const Dashboard = () => {
                                 className='px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed'
                             >
                                 ← Previous
-                            </button>/*Layout */
+                            </button>
 
                             {visiblePageNumbers[0] > 0 && (
                                 <>
