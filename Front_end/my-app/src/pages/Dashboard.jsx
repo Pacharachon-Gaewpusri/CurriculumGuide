@@ -161,7 +161,7 @@ const Dashboard = () => {
                                     }}
                                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all shrink-0 ${
                                         isActive && !showAllMajors
-                                            ? 'bg-slate-900 text-white shadow-sm'
+                                            ? 'bg-slate-900 text-purple shadow-sm'
                                             : 'bg-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                                     }`}
                                 >
@@ -189,8 +189,6 @@ const Dashboard = () => {
                         </button>
                         <div className='text-xs font-medium text-slate-500 flex items-center gap-1'>
                             Showing <span className='font-bold text-slate-800'>{filteredBooks.length}</span> of <span className='font-bold text-slate-800'>{books.length}
-                            <div className="relative inline-block text-left" ref={dropdownRef}>
-                            </div>
                             </span>
                         </div>
                     </div>
