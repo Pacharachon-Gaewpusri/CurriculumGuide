@@ -454,10 +454,10 @@ const CirriculumAnalytics = () => {
                 </div>
                 <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200/80 shadow-sm'>
                     <Link to="/">
-                        <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to HomePage</button>
+                        <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Go to HomePage</button>
                     </Link>
                     <Link to="/dashboard">
-                        <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to Dashboard</button>
+                        <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Go to Dashboard</button>
                     </Link> 
                 </div>       
             </div>
