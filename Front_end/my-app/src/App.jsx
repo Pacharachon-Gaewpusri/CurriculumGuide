@@ -6,6 +6,7 @@ import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromEleme
 import RootLayout from './layout/RootLayout.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import CirriculumAnalytics from './pages/CirriculumAnalytics.jsx'
+import swu_icon from './src/assets/Srinakharinwirot_Logo_TH_Color.jpg'
 // import { GotoDashboard } from './utils/Navigation.jsx'
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -30,6 +31,7 @@ const App = () => {
           index 
           element={
             <div style={{ display: 'flex', gap: '10px' }}>
+              <img src={swu_icon} alt="SWU Icon" />
               <Link to="/dashboard">
                 <button>Dashboard</button>
               </Link>
