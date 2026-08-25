@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { useState } from 'react'
 import './index.css'
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import RootLayout from './layout/RootLayout.jsx'
@@ -20,11 +18,6 @@ const queryClient = new QueryClient({
   },
 });
 
-const imageElement = document.createElement('img');
-imageElement.src = swu_icon;
-imageElement.alt = 'SWU Icon';
-document.getElementById('gallery').appendChild(imageElement);
-
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -36,14 +29,20 @@ const App = () => {
         <Route 
           index 
           element={
-            <div style={{ display: 'flex', gap: '10px' }}>
-              <img src={swu_icon} alt="SWU Icon" />
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+              <img
+                src={swu_icon}
+                alt='Srinakharinwirot University logo'
+                style={{ width: '160px', height: '160px', objectFit: 'contain' }}
+              />
+              <div style={{ display: 'flex', gap: '10px' }}>
               <Link to="/dashboard">
                 <button>Dashboard</button>
               </Link>
               <Link to="/curriculum-analytics">
                 <button>Curriculum Analytics</button>
               </Link>
+              </div>
             </div>
           } 
         />

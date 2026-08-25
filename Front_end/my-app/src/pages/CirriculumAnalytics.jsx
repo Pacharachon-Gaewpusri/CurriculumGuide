@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path according to your project setup
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import swu_icon from '../assets/Srinakharinwirot_Logo_TH_Color.jpg'
 
 const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 
@@ -81,7 +82,10 @@ const CirriculumAnalytics = () => {
     return (
         <div className='min-h-screen bg-slate-50/70 px-3 py-4 sm:px-6 lg:px-8 text-slate-800 font-sans overflow-x-hidden'>
             <div className='max-w-7xl mx-auto space-y-5 sm:space-y-6'>
-                
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+                    <img src={swu_icon} alt='Srinakharinwirot University logo' style={{ width: '160px', height: '160px', objectFit: 'contain' }}/>
+                    <div style={{ display: 'flex', gap: '10px' }}></div>
+                </div>
                 {/* Header */}
                 <header className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-sm'>
                     <div className='flex items-center gap-3 min-w-0'>
@@ -448,12 +452,14 @@ const CirriculumAnalytics = () => {
                         })}
                     </div>
                 </div>
-                <Link to="/">
-                                    <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to HomePage</button>
-                                </Link>
-                <Link to="/dashboard">
-                    <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to Dashboard</button>
-                </Link>        
+                <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200/80 shadow-sm'>
+                    <Link to="/">
+                        <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to HomePage</button>
+                    </Link>
+                    <Link to="/dashboard">
+                        <button className="bg-sky-500 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Go to Dashboard</button>
+                    </Link> 
+                </div>       
             </div>
         </div>
     )
