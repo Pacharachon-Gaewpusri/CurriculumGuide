@@ -24,6 +24,9 @@ const App = () => {
       <Route path='/' element={<RootLayout />}>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/curriculum-analytics' element={<CirriculumAnalytics />} />
+        <Route path='/dermatology' element={<Dermatology />} />
+        <Route path='/development-science' element={<DevSci />} />
+        <Route path='/cosci' element={<COSCI />} />
         
         {/* Native React Router navigation */}
         <Route 

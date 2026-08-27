@@ -202,8 +202,7 @@ const CirriculumAnalytics = () => {
                                         <div 
                                             key={item.name} 
                                             onClick={() => setSelectedCourse(isSelected ? null : item.name)}
-                                            className={`p-2 sm:p-2.5 rounded-xl cursor-pointer transition-all ${isSelected ? 'bg-[#616161]-50/80 border border-[#616161]-200' : 'hover:bg-slate-50'}`}
-                                        >
+                                            className={`p-2 sm:p-2.5 rounded-xl cursor-pointer transition-all ${isSelected ? 'bg-[#616161]-50/80 border border-[#616161]-200' : 'hover:bg-slate-50'}`}>
                                             <div className='flex flex-wrap justify-between items-center text-xs font-semibold text-slate-700 mb-1.5 gap-1'>
                                                 
                                                 <span className='font-bold text-slate-800 block flex-1 mr-2'>{item.name}</span>
@@ -459,6 +458,9 @@ const CirriculumAnalytics = () => {
                     <Link to="/dashboard">
                         <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Go to Dashboard</button>
                     </Link> 
+                    <Link to="/dermatology">
+                        <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Dermatology</button>
+                    </Link>
                 </div>       
             </div>
         </div>
