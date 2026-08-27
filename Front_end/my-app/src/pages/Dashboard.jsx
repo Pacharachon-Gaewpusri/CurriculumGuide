@@ -117,7 +117,7 @@ const Dashboard = () => {
                 <header className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm'>
                     <div className='flex items-center gap-3'>
                         {/* Header Icon (20px) */}
-                        <div className='p-2 bg-indigo-50 text-indigo-600 rounded-lg shrink-0 border border-indigo-100 flex items-center justify-center'>
+                        <div className='p-2 bg-[#616161]-50 text-[#616161]-600 rounded-lg shrink-0 border border-[#616161]-100 flex items-center justify-center'>
                             <svg style={{ width: '20px', height: '20px', minWidth: '20px' }} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' />
                             </svg>
@@ -135,7 +135,7 @@ const Dashboard = () => {
 
                     {/* Stat Badge Icon (15px) */}
                     <div className='flex items-center gap-2 self-start sm:self-auto bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200/80'>
-                        <svg style={{ width: '15px', height: '15px', minWidth: '15px' }} className='text-indigo-600 shrink-0' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                        <svg style={{ width: '15px', height: '15px', minWidth: '15px' }} className='text-[#616161]-600 shrink-0' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' />
                         </svg>
                         <div className='text-xs'>
@@ -332,11 +332,11 @@ const Dashboard = () => {
                                                         href={book["URL"]} 
                                                         target='_blank' 
                                                         rel='noreferrer' 
-                                                        className='font-semibold text-slate-800 hover:text-blue-600 inline-flex items-center gap-1 transition-colors group-hover:text-blue-600'
+                                                        className='font-semibold text-slate-800 hover:text-[#73b9ff]-600 inline-flex items-center gap-1 transition-colors group-hover:text-[#73b9ff]-600'
                                                     >
                                                         <span>{book["Title"]}</span>
                                                         {/* Link Icon (12px) */}
-                                                        <svg style={{ width: '12px', height: '12px', minWidth: '12px' }} className='opacity-0 group-hover:opacity-100 transition-opacity text-blue-500' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                                        <svg style={{ width: '12px', height: '12px', minWidth: '12px' }} className='opacity-0 group-hover:opacity-100 transition-opacity text-[#73b9ff]-500' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                                                             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14' />
                                                         </svg>
                                                     </a>
@@ -351,7 +351,7 @@ const Dashboard = () => {
 
                                             <td className='px-3.5 py-2.5 align-top'>
                                                 {book["Conspectus Subject"] ? (
-                                                    <span className='inline-block bg-indigo-50 text-indigo-700 border border-indigo-100/80 text-[10px] px-2 py-0.5 rounded font-medium whitespace-nowrap'>
+                                                    <span className='inline-block bg-[#616161]-50 text-[#616161]-700 border border-[#616161]-100/80 text-[10px] px-2 py-0.5 rounded font-medium whitespace-nowrap'>
                                                         {book["Conspectus Subject"]}
                                                     </span>
                                                 ) : (
