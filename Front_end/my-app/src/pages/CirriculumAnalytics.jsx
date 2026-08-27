@@ -77,7 +77,7 @@ const CirriculumAnalytics = () => {
         }
     }, [dataset, categories])
 
-    const colors = ['#3b82f6', '#6366f1', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6', '#06b6d4', '#84cc16']
+    const colors = ['#00c3ff', '#6366f1', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6', '#0647d4', '#84cc16']
 
     return (
         <div className='min-h-screen bg-slate-50/70 px-3 py-4 sm:px-6 lg:px-8 text-slate-800 font-sans overflow-x-hidden'>
