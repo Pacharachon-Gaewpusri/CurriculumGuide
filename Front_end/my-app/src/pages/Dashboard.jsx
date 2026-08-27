@@ -216,6 +216,12 @@ const Dashboard = () => {
                             Showing <span className='font-bold text-slate-800'>{filteredBooks.length}</span> of <span className='font-bold text-slate-800'>{books.length}
                             </span>
                         </div>
+                        <Link to="/">
+                        <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Go to HomePage</button>
+                        </Link>
+                        <Link to="/curriculum-analytics">
+                            <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Go to Analytics</button>
+                        </Link>
                     </div>
                 </div>
 
