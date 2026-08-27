@@ -216,9 +216,15 @@ const Dashboard = () => {
                             Showing <span className='font-bold text-slate-800'>{filteredBooks.length}</span> of <span className='font-bold text-slate-800'>{books.length}
                             </span>
                         </div>
+                            <Link to="/">
+                                <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Go to HomePage</button>
+                            </Link>
+                            <Link to="/curriculum-analytics">
+                                <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Go to Curriculum Analytics</button>
+                            </Link>  
                     </div>
                 </div>
-
+                
                 {/* 3. Search Bar */}
                 <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200/80 shadow-sm'>
                     <div className='relative flex-1 max-w-md'>
