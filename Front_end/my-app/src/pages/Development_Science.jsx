@@ -1,36 +1,38 @@
-import React, { useEffect, useState, useMemo, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
-import rawJsonData from '../data/resources.json' // Path preserved
+import React, { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom';
 import resourcesData from '../data/resources.json';
-import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 
 const DevSci = () => {
-const asArray = (data) => {
-	if (Array.isArray(data)) return data;
-	return data?.resources || data?.materials || data?.data || [];
-};
+const nonElectronicFile = 'Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx';
+const electronicFile = 'Front_end/my-app/src/data/AUN QA 2025-2026 (Electronics).xlsx';
+const developmentCategory = 'พัฒนศึกษาศาสตร์';
 
-const valueOf = (item, keys) => keys.map((key) => item?.[key]).filter(Boolean).join(' ');
+const getRecords = (source, materialType) => {
+	const records = source?.[developmentCategory];
+	if (!Array.isArray(records)) return [];
 
-const isDevSci = (item) =>
-	/DevelopmentSci/i.test(valueOf(item, ['major', 'specialty', 'department', 'subject', 'course']));
-
-const getMaterialType = (item) => {
-	const type = valueOf(item, ['type', 'format', 'materialType', 'resourceType', 'category']);
-	return /electronic|digital|online|video|software|website|e-book|ebook/i.test(type)
-		? 'Electronics'
-		: 'Non-electronics';
+	return records
+		.filter((item) => item && item['Item OCLC Number'] !== 'Item OCLC Number')
+		.map((item) => ({ ...item, materialType }));
 };
 
 	const [selectedType, setSelectedType] = useState('All');
 	const [search, setSearch] = useState('');
 
-	const materials = useMemo(() => asArray(resourcesData).filter(isDevSci), []);
+	const materials = useMemo(() => {
+		const nonElectronic = resourcesData?.[nonElectronicFile];
+		const electronic = nonElectronic?.[electronicFile];
+		return [
+			...getRecords(nonElectronic, 'Non-electronics'),
+			...getRecords(electronic, 'Electronics'),
+		];
+	}, []);
 	const filteredMaterials = materials.filter((item) => {
-		const matchesType = selectedType === 'All' || getMaterialType(item) === selectedType;
-		const text = valueOf(item, [
-			'title', 'name', 'description', 'summary', 'author', 'type', 'format',
-		]).toLowerCase();
+		const matchesType = selectedType === 'All' || item.materialType === selectedType;
+		const text = [
+			item['Title'], item['Author Name'], item['Conspectus Subject'],
+			item['Publisher Name'], item['Publication Date'],
+		].filter(Boolean).join(' ').toLowerCase();
 		return matchesType && text.includes(search.toLowerCase());
 	});
 
@@ -63,14 +65,15 @@ const getMaterialType = (item) => {
 
 			<section className="resource-grid" aria-label="Development Science resources">
 				{filteredMaterials.map((item, index) => {
-					const title = item.title || item.name || 'Untitled resource';
-					const link = item.url || item.link || item.href;
+					const title = item['Title'] || 'Untitled resource';
+					const link = item['URL'];
 					return (
-						<article className="resource-card" key={item.id || title || index}>
-							<span className="resource-type">{getMaterialType(item)}</span>
+						<article className="resource-card" key={`${item.materialType}-${item['Item OCLC Number'] || title || index}`}>
+							<span className="resource-type">{item.materialType}</span>
 							<h2>{title}</h2>
-							{(item.description || item.summary) && <p>{item.description || item.summary}</p>}
-							{item.author && <p><strong>Author:</strong> {item.author}</p>}
+							{item['Conspectus Subject'] && <p><strong>Subject:</strong> {item['Conspectus Subject']}</p>}
+							{item['Author Name'] && <p><strong>Author:</strong> {item['Author Name']}</p>}
+							{item['Publication Date'] && <p><strong>Published:</strong> {item['Publication Date']}</p>}
 							{link && <a href={link} target="_blank" rel="noreferrer">Open resource</a>}
 						</article>
 					);

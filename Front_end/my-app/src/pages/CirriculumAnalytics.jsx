@@ -165,6 +165,15 @@ const CirriculumAnalytics = () => {
                             </svg>
                         </div>
                     </div>
+                    <Link to="/dermatology">
+                        <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Dermatology</button>
+                    </Link>
+                    <Link to="/development-science">
+                        <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Development Science</button>
+                    </Link>
+                    <Link to="/cosci">
+                        <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Communication Science</button>
+                    </Link>
                 </div>
 
                 {/* 2. PRIMARY CHARTS (BAR & FLUID SVG DONUT) */}
@@ -458,9 +467,7 @@ const CirriculumAnalytics = () => {
                     <Link to="/dashboard">
                         <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Go to Dashboard</button>
                     </Link> 
-                    <Link to="/dermatology">
-                        <button className="bg-sky-500 hover:bg-sky-700 text-black font-semibold py-2 px-4 rounded">Dermatology</button>
-                    </Link>
+
                 </div>       
             </div>
         </div>
