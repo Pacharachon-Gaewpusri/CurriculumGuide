@@ -6,7 +6,7 @@ import swu_icon from '../assets/Srinakharinwirot_Logo_TH_Color.jpg'
 
 const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 const FILE_KEY_2 = "Front_end/my-app/src/data/AUN QA 2025-2026 (electronics).xlsx"
-const ITEMS_PER_PAGE = [60,100,200,250,500,1000][0] // Default to 60 items per page
+const ITEMS_PER_PAGE_OPTIONS = [25, 50, 100, 250, 500, 1000]
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -27,6 +27,7 @@ const Dashboard = () => {
     const [searchTerm, setSearchTerm] = useState('')
     const [showAllMajors, setShowAllMajors] = useState(false)
     const [currentPage, setCurrentPage] = useState(0)
+    const [itemsPerPage, setItemsPerPage] = useState(ITEMS_PER_PAGE_OPTIONS[1])
 
     const allMajorBooks = useMemo(() => {
         return categories.flatMap((category) => {
@@ -71,7 +72,7 @@ const Dashboard = () => {
         })
     }, [books, searchTerm])
 
-    const pageCount = Math.max(1, Math.ceil(filteredBooks.length / ITEMS_PER_PAGE))
+    const pageCount = Math.max(1, Math.ceil(filteredBooks.length / itemsPerPage))
 
     const visiblePageNumbers = useMemo(() => {
         const delta = 3 // Number of pages to show on each side of the current page
@@ -81,17 +82,25 @@ const Dashboard = () => {
     }, [currentPage, pageCount])
 
     const paginatedBooks = useMemo(() => {
-        const start = currentPage * ITEMS_PER_PAGE
-        return filteredBooks.slice(start, start + ITEMS_PER_PAGE)
-    }, [currentPage, filteredBooks])
+        const start = currentPage * itemsPerPage
+        return filteredBooks.slice(start, start + itemsPerPage)
+    }, [currentPage, filteredBooks, itemsPerPage])
 
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage)
     }
 
+    const handleItemsPerPageChange = (event) => {
+        const selectedItemsPerPage = Number(event.target.value)
+        if (!ITEMS_PER_PAGE_OPTIONS.includes(selectedItemsPerPage)) return
+
+        setItemsPerPage(selectedItemsPerPage)
+        setCurrentPage(0)
+    }
+
     useEffect(() => {
         setCurrentPage(0)
-    }, [selectedCategory, searchTerm, showAllMajors])
+    }, [selectedCategory, searchTerm, showAllMajors, itemsPerPage])
 
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -111,8 +120,21 @@ const Dashboard = () => {
         <div className='min-h-screen bg-slate-50/70 px-3 py-5 sm:px-6 lg:px-8 text-slate-800 font-sans'>
             <div className='max-w-7xl mx-auto space-y-4'>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-                              <img src={swu_icon} alt='Srinakharinwirot University logo' style={{ width: '160px', height: '160px', objectFit: 'contain' }}/>
-                              <div style={{ display: 'flex', gap: '10px' }}></div></div>
+                    <img src={swu_icon} alt='Srinakharinwirot University logo' style={{ width: '160px', height: '160px', objectFit: 'contain' }}/>
+                    <label className='flex items-center gap-2 text-xs text-slate-600'>
+                        <span className='font-semibold text-slate-700'>Items per page:</span>
+                        <select
+                            name='items-per-page'
+                            value={itemsPerPage}
+                            onChange={handleItemsPerPageChange}
+                            className='rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs text-slate-700 focus:outline-none focus:ring-1 focus:ring-slate-900'
+                        >
+                            {ITEMS_PER_PAGE_OPTIONS.map((option) => (
+                                <option key={option} value={option}>{option}</option>
+                            ))}
+                        </select>
+                    </label>
+                </div>
                 {/* 1. Header */}
                 <header className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm'>
                     <div className='flex items-center gap-3'>
@@ -227,9 +249,9 @@ const Dashboard = () => {
 
                     <div className='flex items-center gap-2'>
                         <div className='text-xs font-medium text-slate-500 flex items-center gap-1'>
-                            Showing <span className='font-bold text-slate-800'>{Math.min(filteredBooks.length, currentPage * ITEMS_PER_PAGE + 1)}</span>
+                            Showing <span className='font-bold text-slate-800'>{Math.min(filteredBooks.length, currentPage * itemsPerPage + 1)}</span>
                             <span className='text-slate-400'>-</span>
-                            <span className='font-bold text-slate-800'>{Math.min((currentPage + 1) * ITEMS_PER_PAGE, filteredBooks.length)}</span>
+                            <span className='font-bold text-slate-800'>{Math.min((currentPage + 1) * itemsPerPage, filteredBooks.length)}</span>
                             of <span className='font-bold text-slate-800'>{filteredBooks.length}</span>
                         </div>
                     </div>
@@ -311,7 +333,7 @@ const Dashboard = () => {
                                             className='hover:bg-slate-50/80 transition-colors group'
                                         >
                                             <td className='px-3 py-2.5 align-top text-center text-slate-500 font-semibold'>
-                                                {currentPage * ITEMS_PER_PAGE + index + 1}
+                                                {currentPage * itemsPerPage + index + 1}
                                             </td>
                                             <td className='px-3.5 py-2.5 align-top'>
                                                 <div className='flex flex-col gap-0.5'>
