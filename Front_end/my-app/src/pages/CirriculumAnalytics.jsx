@@ -89,14 +89,14 @@ const CirriculumAnalytics = () => {
                 {/* Header */}
                 <header className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-sm'>
                     <div className='flex items-center gap-3 min-w-0'>
-                        <div className='p-2.5 bg-indigo-600 text-white rounded-xl shadow-md shrink-0 flex items-center justify-center'>
+                        <div className='p-2.5 bg-[#616161]-600 text-white rounded-xl shadow-md shrink-0 flex items-center justify-center'>
                             <svg style={{ width: '20px', height: '20px' }} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' />
                             </svg>
                         </div>
                         <div className='min-w-0'>
                             <div className='flex items-center gap-1.5'>
-                                <span className='inline-block w-2 h-2 rounded-full bg-indigo-500 animate-pulse shrink-0'></span>
+                                <span className='inline-block w-2 h-2 rounded-full bg-[#616161]-500 animate-pulse shrink-0'></span>
                                 <span className='text-[10px] sm:text-xs font-semibold tracking-wider uppercase text-slate-400 truncate'>AUN QA Analytics Portal</span>
                             </div>
                             <h1 className='text-base sm:text-xl font-bold text-slate-900 tracking-tight truncate'>
@@ -135,7 +135,7 @@ const CirriculumAnalytics = () => {
                             <p className='text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-wider truncate'>Curriculums</p>
                             <h3 className='text-lg sm:text-xl font-extrabold text-slate-800 mt-0.5 truncate'>{categories.length}</h3>
                         </div>
-                        <div className='p-2.5 bg-indigo-50 text-indigo-600 rounded-xl shrink-0 hidden sm:block'>
+                        <div className='p-2.5 bg-[#616161]-50 text-[#616161]-600 rounded-xl shrink-0 hidden sm:block'>
                             <svg style={{ width: '20px', height: '20px' }} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 01-2-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' />
                             </svg>
@@ -182,7 +182,7 @@ const CirriculumAnalytics = () => {
                                 </div>
                                 <div className='flex items-center gap-3 text-xs font-semibold shrink-0'>
                                     <div className='flex items-center gap-1.5'>
-                                        <span className='w-2.5 h-2.5 rounded bg-indigo-600 inline-block'></span>
+                                        <span className='w-2.5 h-2.5 rounded bg-[#616161]-600 inline-block'></span>
                                         <span className='text-slate-600 text-[11px]'>Books</span>
                                     </div>
                                     <div className='flex items-center gap-1.5'>
@@ -202,7 +202,7 @@ const CirriculumAnalytics = () => {
                                         <div 
                                             key={item.name} 
                                             onClick={() => setSelectedCourse(isSelected ? null : item.name)}
-                                            className={`p-2 sm:p-2.5 rounded-xl cursor-pointer transition-all ${isSelected ? 'bg-indigo-50/80 border border-indigo-200' : 'hover:bg-slate-50'}`}
+                                            className={`p-2 sm:p-2.5 rounded-xl cursor-pointer transition-all ${isSelected ? 'bg-[#616161]-50/80 border border-[#616161]-200' : 'hover:bg-slate-50'}`}
                                         >
                                             <div className='flex flex-wrap justify-between items-center text-xs font-semibold text-slate-700 mb-1.5 gap-1'>
                                                 
@@ -216,7 +216,7 @@ const CirriculumAnalytics = () => {
                                             <div className='space-y-1.5'>
                                                 <div className='w-full bg-slate-100 h-2.5 rounded-full overflow-hidden flex'>
                                                     <div 
-                                                        className='bg-indigo-600 h-full rounded-full transition-all duration-500'
+                                                        className='bg-[#616161]-600 h-full rounded-full transition-all duration-500'
                                                         style={{ width: `${bookWidth}%` }}
                                                     ></div>
                                                 </div>
@@ -420,7 +420,7 @@ const CirriculumAnalytics = () => {
                                     <div className='grid grid-cols-3 gap-1 py-2 border-y border-slate-100 text-center'>
                                         <div>
                                             <p className='text-[10px] text-slate-400 font-medium'>Books</p>
-                                            <p className='text-xs font-bold text-indigo-600 font-mono mt-0.5'>{item.bookCount}</p>
+                                            <p className='text-xs font-bold text-[#616161]-600 font-mono mt-0.5'>{item.bookCount}</p>
                                         </div>
                                         <div>
                                             <p className='text-[10px] text-slate-400 font-medium'>Subjects</p>
