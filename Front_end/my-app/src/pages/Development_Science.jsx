@@ -4,6 +4,7 @@ import rawJsonData from '../data/resources.json' // Path preserved
 import resourcesData from '../data/resources.json';
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 
+const DevSci = () => {
 const asArray = (data) => {
 	if (Array.isArray(data)) return data;
 	return data?.resources || data?.materials || data?.data || [];
@@ -21,7 +22,6 @@ const getMaterialType = (item) => {
 		: 'Non-electronics';
 };
 
-export default function DevSci() {
 	const [selectedType, setSelectedType] = useState('All');
 	const [search, setSearch] = useState('');
 
@@ -89,3 +89,4 @@ export default function DevSci() {
         </main>
 	);
 }
+ export default DevSci

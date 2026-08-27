@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path preserved
 import resourcesData from '../data/resources.json';
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-
+const CoSci = () => {
 const asArray = (data) => {
 	if (Array.isArray(data)) return data;
 	return data?.resources || data?.materials || data?.data || [];
@@ -21,7 +21,6 @@ const getMaterialType = (item) => {
 		: 'Non-electronics';
 };
 
-export default function COSCI() {
 	const [selectedType, setSelectedType] = useState('All');
 	const [search, setSearch] = useState('');
 
@@ -37,8 +36,8 @@ export default function COSCI() {
 	return (
 		<main className="COSCI-page">
 			<header>
-				<h1>COSCI Learning Materials</h1>
-				<p>All non-electronics and electronics resources for the COSCI major.</p>
+				<h1>Communication Science Learning Materials</h1>
+				<p>All non-electronics and electronics resources for the Communication Science major.</p>
 			</header>
 
 			<div className="resource-filters">
@@ -47,7 +46,7 @@ export default function COSCI() {
 					placeholder="Search materials..."
 					value={search}
 					onChange={(event) => setSearch(event.target.value)}
-					aria-label="Search COSCI learning materials"
+					aria-label="Search Communication Science learning materials"
 				/>
 				{['All', 'Non-electronics', 'Electronics'].map((type) => (
 					<button
@@ -61,7 +60,7 @@ export default function COSCI() {
 				))}
 			</div>
 
-			<section className="resource-grid" aria-label="COSCI resources">
+			<section className="resource-grid" aria-label="Communication Science resources">
 				{filteredMaterials.map((item, index) => {
 					const title = item.title || item.name || 'Untitled resource';
 					const link = item.url || item.link || item.href;
@@ -89,3 +88,4 @@ export default function COSCI() {
         </main>
 	);
 }
+export default CoSci
