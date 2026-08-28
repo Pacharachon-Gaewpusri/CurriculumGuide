@@ -4,6 +4,9 @@ import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromEleme
 import RootLayout from './layout/RootLayout.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import CirriculumAnalytics from './pages/CirriculumAnalytics.jsx'
+import Dermatology from './pages/Dermatology.jsx'
+import DevSci from './pages/Development_Science.jsx'
+import COSCI from './pages/COSCI.jsx'
 import swu_icon from './assets/Srinakharinwirot_Logo_TH_Color.jpg'
 
 // import { GotoDashboard } from './utils/Navigation.jsx'
@@ -24,6 +27,9 @@ const App = () => {
       <Route path='/' element={<RootLayout />}>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/curriculum-analytics' element={<CirriculumAnalytics />} />
+        <Route path='/dermatology' element={<Dermatology />} />
+        <Route path='/development-science' element={<DevSci />} />
+        <Route path='/cosci' element={<COSCI />} />
         
         {/* Native React Router navigation */}
         <Route 
