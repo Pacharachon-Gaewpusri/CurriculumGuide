@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import resourcesData from '../data/resources.json';
 
 const DevSci = () => {
-const nonElectronicFile = 'Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx';
-const electronicFile = 'Front_end/my-app/src/data/AUN QA 2025-2026 (Electronics).xlsx';
+const nonElectronicFile = 'my-app/src/data/AUN QA 2025 (Non-electronics).xlsx';
+const electronicFile = 'my-app/src/data/AUN QA 2025-2026 (Electronics).xlsx';
 const developmentCategory = 'พัฒนศึกษาศาสตร์';
 
 const getRecords = (source, materialType) => {

@@ -4,8 +4,8 @@ import rawJsonData from '../data/resources.json' // Path preserved
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import swu_icon from '../assets/Srinakharinwirot_Logo_TH_Color.jpg'
 
-const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
-const FILE_KEY_2 = "Front_end/my-app/src/data/AUN QA 2025-2026 (electronics).xlsx"
+const FILE_KEY = "my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
+const FILE_KEY_2 = "my-app/src/data/AUN QA 2025-2026 (electronics).xlsx"
 const ITEMS_PER_PAGE_OPTIONS = [25, 50, 100, 250, 500, 1000]
 
 const Dashboard = () => {

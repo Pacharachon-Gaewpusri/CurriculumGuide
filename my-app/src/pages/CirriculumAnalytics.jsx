@@ -5,12 +5,15 @@ import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromEleme
 import ReactPaginate from 'react-paginate';
 import swu_icon from '../assets/Srinakharinwirot_Logo_TH_Color.jpg'
 
-const FILE_KEY = "Front_end/my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
+const FILE_KEY = "my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
+const FILE_KEY_2 = "my-app/src/data/AUN QA 2025-2026 (electronics).xlsx"
 
 const CirriculumAnalytics = () => {
     const navigate = useNavigate()
 
-    const dataset = useMemo(() => rawJsonData[FILE_KEY] || {}, [])
+    const dataset = useMemo(() => {
+        return { ...rawJsonData[FILE_KEY], ...rawJsonData[FILE_KEY_2] }
+    }, [])
 
     // 1. Extract all course / department keys
     const categories = useMemo(() => {
