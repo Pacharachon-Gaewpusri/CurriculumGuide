@@ -1,5 +1,5 @@
-// import app_js from '../Front_end/my-app/src/App.jsx'
-// import '../Front_end/my-app/src/main.jsx'
+import app_js from '../Front_end/my-app/src/App.jsx'
+import '../Front_end/my-app/src/main.jsx'
 import Dashboard from '../Front_end/my-app/src/pages/Dashboard.jsx'
 import RootLayout from '../Front_end/my-app/src/layout/RootLayout.jsx'
 
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 
 app.use(express.static('../Front_end/my-app/dist'));
 
-app.get('*path', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.resolve('../Front_end/my-app/dist/index.html'));
 });
 app.get('/dashboard', (req, res) => {
