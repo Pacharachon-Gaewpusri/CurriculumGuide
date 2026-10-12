@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "Launch xlsx Parser",
-            "program": "${workspaceFolder}/Back_end/src/parse.js",
+            "program": "${workspaceFolder}/my-app/Back_end/src/parse.js",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
@@ -16,7 +16,7 @@
         
         {
             "name": "Launch Program",
-            "program": "${workspaceFolder}/Back_end/app.js",
+            "program": "${workspaceFolder}/my-app/Back_end/app.js",
             "request": "launch",
             "type": "node"
         },

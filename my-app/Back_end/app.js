@@ -1,7 +1,7 @@
-import app_js from '../Front_end/my-app/src/App.jsx'
-import '../Front_end/my-app/src/main.jsx'
-import Dashboard from '../Front_end/my-app/src/pages/Dashboard.jsx'
-import RootLayout from '../Front_end/my-app/src/layout/RootLayout.jsx'
+import app_js from '../src/App.jsx'
+import '../src/main.jsx'
+import Dashboard from '../src/pages/Dashboard.jsx'
+import RootLayout from '../src/layout/RootLayout.jsx'
 
 import express from "express";
 import path from 'path';
@@ -20,13 +20,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static('../Front_end/my-app/dist'));
+app.use(express.static('../dist'));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve('../Front_end/my-app/dist/index.html'));
+  res.sendFile(path.resolve('../dist/index.html'));
 });
 app.get('/dashboard', (req, res) => {
-  res.sendFile(path.resolve('../Front_end/my-app/dist/index.html'));
+  res.sendFile(path.resolve('../dist/index.html'));
 });
 
 // app.get('/api/dashboard', (req, res) => {
