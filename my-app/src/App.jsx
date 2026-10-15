@@ -24,12 +24,12 @@ const queryClient = new QueryClient({
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/CurriculumGuide/' element={<RootLayout />}>
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/curriculum-analytics' element={<CirriculumAnalytics />} />
-        <Route path='/dermatology' element={<Dermatology />} />
-        <Route path='/development-science' element={<DevSci />} />
-        <Route path='/cosci' element={<COSCI />} />
+      <Route path='/CurriculumGuide' element={<RootLayout />}>
+        <Route path='/CurriculumGuide/dashboard' element={<Dashboard />} />
+        <Route path='/CurriculumGuide/curriculum-analytics' element={<CirriculumAnalytics />} />
+        <Route path='/CurriculumGuide/dermatology' element={<Dermatology />} />
+        <Route path='/CurriculumGuide/development-science' element={<DevSci />} />
+        <Route path='/CurriculumGuide/cosci' element={<COSCI />} />
         
         {/* Native React Router navigation */}
         <Route 
