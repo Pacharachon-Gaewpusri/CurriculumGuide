@@ -24,7 +24,7 @@ const queryClient = new QueryClient({
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<RootLayout />}>
+      <Route path='/CurriculumGuide' element={<RootLayout />}>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/curriculum-analytics' element={<CirriculumAnalytics />} />
         <Route path='/dermatology' element={<Dermatology />} />
