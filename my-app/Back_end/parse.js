@@ -5,7 +5,7 @@ import XLSX from 'xlsx';
 import fs from 'fs';
 
 // File paths for the two Excel files
-const files = ['my-app/src/data/AUN QA 2025 (Non-electronics).xlsx', 'my-app/src/data/AUN QA 2025-2026 (Electronics).xlsx'];
+const files = ['my-app/src/assets/data/AUN QA 2025 (Non-electronics).xlsx', 'my-app/src/assets/data/AUN QA 2025-2026 (Electronics).xlsx'];
 
 // Object to store all structured data
 const outputData = {};
