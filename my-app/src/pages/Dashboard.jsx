@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path preserved
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import swu_icon from '../assets/Srinakharinwirot_Logo_TH_Color.jpg'
+import swu_icon from '../assets/Srinakharinwirot_Logo_TH_Color.png'
 
 const FILE_KEY = "my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 const FILE_KEY_2 = "my-app/src/data/AUN QA 2025-2026 (electronics).xlsx"

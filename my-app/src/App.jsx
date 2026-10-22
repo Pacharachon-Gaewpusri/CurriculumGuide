@@ -7,7 +7,7 @@ import CirriculumAnalytics from './pages/CirriculumAnalytics.jsx'
 import Dermatology from './pages/Dermatology.jsx'
 import DevSci from './pages/Development_Science.jsx'
 import COSCI from './pages/COSCI.jsx'
-import swu_icon from './assets/Srinakharinwirot_Logo_TH_Color.jpg'
+import swu_icon from './assets/Srinakharinwirot_Logo_TH_Color.png'
 
 // import { GotoDashboard } from './utils/Navigation.jsx'
 
@@ -16,7 +16,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
+      refetchOnWindowFocus: true,
     },
   },
 });
@@ -24,7 +24,7 @@ const queryClient = new QueryClient({
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/CurriculumGuide/' element={<RootLayout />}>
+      <Route path='/' element={<RootLayout />}>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/curriculum-analytics' element={<CirriculumAnalytics />} />
         <Route path='/dermatology' element={<Dermatology />} />
@@ -54,13 +54,15 @@ const App = () => {
         />
       </Route>
     ),
-    { basename: '/CurriculumGuide' }
+    { basename: '/CurriculumGuide/' }
   )
 
   return (
-    <QueryClientProvider client={queryClient}>
+    //<QueryClientProvider client={queryClient}>
+    <>
       <RouterProvider router={router} />
-    </QueryClientProvider>
+    </>
+    //</QueryClientProvider>
   )
 }
 export default App

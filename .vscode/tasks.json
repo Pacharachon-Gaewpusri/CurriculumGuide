@@ -4,18 +4,18 @@
 		{
 			"type": "npm",
 			"script": "dev",
-			"path": "Front_end/my-app",
+			"path": "../my-app",
 			"problemMatcher": [],
-			"label": "npm: dev - Front_end/my-app",
+			"label": "npm: dev - ../my-app",
 			"detail": "vite"
 		},
 		{
 			"type": "npm",
 			"script": "build",
-			"path": "Front_end/my-app",
+			"path": "../my-app",
 			"group": "build",
 			"problemMatcher": [],
-			"label": "npm: build - Front_end/my-app",
+			"label": "npm: build - ../my-app",
 			"detail": "vite build"
 		},
 		{

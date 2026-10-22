@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import rawJsonData from '../data/resources.json' // Path according to your project setup
 import { Link, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-import swu_icon from '../assets/Srinakharinwirot_Logo_TH_Color.jpg'
+import swu_icon from '../assets/Srinakharinwirot_Logo_TH_Color.png'
 
 const FILE_KEY = "my-app/src/data/AUN QA 2025 (Non-electronics).xlsx"
 const FILE_KEY_2 = "my-app/src/data/AUN QA 2025-2026 (electronics).xlsx"
